@@ -41,8 +41,19 @@ const petsModule = (function(){
     const getPetRows = function() {
         return $tbodyEl.querySelectorAll("tr");
     }
-    //Pet tablosundaki satirlara tıklandiginda satir renginin degismesi icin
-     const changePetRowColor = function () {
+    //Pet tablosundaki satirlara tıklandiginda satir renginin degismesi icin iki metodu asagida bulabilirsiniz
+    // Metod 1
+    const changePetRowColor = function () {
+        const rows = getPetRows();
+        for(let i= 0; i< rows.length; i++){
+            rows[i].addEventListener("click", function(event){
+                rows[i].style.backgroundColor = _data[i].backgroundColor;
+                rows[i].style.color = "white";
+            });
+        }
+    }
+    // Metod 2
+    /*const changePetRowColor = function () {
         const rows = getPetRows();
         for(let i= 0; i< rows.length; i++){
             rows[i].addEventListener("click", function(event){
@@ -51,7 +62,7 @@ const petsModule = (function(){
                 selectedRow.color = "white";
             });
         }
-    }
+    }*/
 
     // Buton uzerinde belirtilen tusa basildiginda ilgili hayvanin sesinin calmasi icin
     const playSoundByKey = function () {
