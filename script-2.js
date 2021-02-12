@@ -5,7 +5,7 @@ const petsModule = (function(){
             name: "Sam",
             type: "Golden Retriever/St. Bernard Mix",
             sound: "bark",
-            soundText: "Bark - type b"
+            soundText: "Bark - type b",
             soundKey: 66,
             backgroundColor: "purple"
         },
@@ -14,9 +14,27 @@ const petsModule = (function(){
             name: "Mellie",
             type: "Domestic Shorthair",
             sound: "meow",
-            soundText: "Meow - type m"
+            soundText: "Meow - type m",
             soundKey: 77,
             backgroundColor: "blue"
+        },
+        { 
+            image: "https://i.pinimg.com/originals/4c/5d/33/4c5d3306996db2ddaa30ec673bcb6d57.png",
+            name: "Toothless",
+            type: "Dragon - Night Fury",
+            sound: "purr",
+            soundText: "Purr - type p",
+            soundKey: 80,
+            backgroundColor: "green"
+        },
+        { 
+            image: "https://i.pinimg.com/originals/76/34/54/763454ce2860a63a605502a8899c2c13.jpg",
+            name: "Pascal",
+            type: "Chameleon",
+            sound: "squeak",
+            soundText: "Squeak - type s",
+            soundKey: 83,
+            backgroundColor: "orange"
         }
     ];
     const $tbodyEl = document.querySelector("tbody");
