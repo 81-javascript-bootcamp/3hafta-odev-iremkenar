@@ -37,7 +37,23 @@ const petsModule = (function(){
             addToTable(createPetElement(_data[i]));
         }
     }
-    // Buton üzerinde belirtilen tuşa basıldığında ilgili hayvanın sesinin çalması için
+    // Pet tablosundaki tum satirlari getirmek icin
+    const getPetRows = function() {
+        return $tbodyEl.querySelectorAll("tr");
+    }
+    //Pet tablosundaki satirlara tıklandiginda satir renginin degismesi icin
+     const changePetRowColor = function () {
+        const rows = getPetRows();
+        for(let i= 0; i< rows.length; i++){
+            rows[i].addEventListener("click", function(event){
+                const selectedRow = this.style;
+                selectedRow.backgroundColor = "purple";
+                selectedRow.color = "white";
+            });
+        }
+    }
+
+    // Buton uzerinde belirtilen tusa basildiginda ilgili hayvanin sesinin calmasi icin
     const playSoundByKey = function () {
         document.addEventListener("keydown", function(event){
             for(let i=0; i< _data.length; i++){
@@ -69,6 +85,7 @@ const petsModule = (function(){
         putPetsInHtml();
         bindEvents();
         playSoundByKey();
+        changePetRowColor();
     }
 
     return {
