@@ -6,7 +6,8 @@ const petsModule = (function(){
             type: "Golden Retriever/St. Bernard Mix",
             sound: "bark",
             soundText: "Bark - type b"
-            soundKey: 66
+            soundKey: 66,
+            backgroundColor: "purple"
         },
         {
             image: "https://pet-uploads.adoptapet.com/0/f/3/462356648.jpg",
@@ -14,11 +15,14 @@ const petsModule = (function(){
             type: "Domestic Shorthair",
             sound: "meow",
             soundText: "Meow - type m"
-            soundKey: 66
+            soundKey: 77,
+            backgroundColor: "blue"
         }
     ];
     const $tbodyEl = document.querySelector("tbody");
     const $buttons= document.querySelectorAll("button");
+    const $petRows = $tbodyEl.querySelectorAll("tr");
+    const $mainImage = document.querySelector("main-image");
 
     const getButtons = function(){
         return document.querySelectorAll("button");
@@ -42,7 +46,7 @@ const petsModule = (function(){
         return $tbodyEl.querySelectorAll("tr");
     }
     //Pet tablosundaki satirlara tıklandiginda satir renginin degismesi icin iki metodu asagida bulabilirsiniz
-    // Metod 1
+    // Metod 1 - Dynamic row color
     const changePetRowColor = function () {
         const rows = getPetRows();
         for(let i= 0; i< rows.length; i++){
@@ -52,7 +56,7 @@ const petsModule = (function(){
             });
         }
     }
-    // Metod 2
+    // Metod 2 - Static row color
     /*const changePetRowColor = function () {
         const rows = getPetRows();
         for(let i= 0; i< rows.length; i++){
@@ -63,6 +67,17 @@ const petsModule = (function(){
             });
         }
     }*/
+
+    //Satira tikladiginda ana gorselin secili pet gorseli olmasi icin
+    const setPetAsMainImage = function () {
+      const rows = getPetRows();
+      for(let i= 0; i< rows.length; i++){
+          rows[i].addEventListener("click", function(event){
+              const mainImage = document.querySelector(".main-image");
+              mainImage.setAttribute("src", _data[i].image);
+          });
+      }
+    }
 
     // Buton uzerinde belirtilen tusa basildiginda ilgili hayvanin sesinin calmasi icin
     const playSoundByKey = function () {
@@ -99,6 +114,7 @@ const petsModule = (function(){
         bindEvents();
         playSoundByKey();
         changePetRowColor();
+        setPetAsMainImage();
     }
 
     return {
