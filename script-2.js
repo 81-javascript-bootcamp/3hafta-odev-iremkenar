@@ -72,6 +72,8 @@ const petsModule = (function(){
         const buttons = getButtons();
         for(let i= 0; i< buttons.length; i++){
             buttons[i].addEventListener("click", function(event){
+                //Butona basildiginda satir renginin degismemesi icin
+                event.stopPropagation();
                 const soundId = this.dataset.sound;
                 const soundElement = document.getElementById(soundId);
                 if(soundElement){
